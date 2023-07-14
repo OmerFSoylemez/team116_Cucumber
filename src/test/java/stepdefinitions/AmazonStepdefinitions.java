@@ -81,5 +81,6 @@ public class AmazonStepdefinitions {
     public void kullanıcıAnasayfasinaGider(String istenenUrl) {
 
         Driver.getDriver().get(ConfigReader.getProperty(istenenUrl));
+        //
     }
 }
