@@ -17,27 +17,7 @@ public class Driver {
     }
     public static WebDriver getDriver() {
 
-        /*
-            Bundan sonra daha önce driver olarak TestBase den alıp kulllandığımız
-            WebDriver ın yerine
 
-            Driver class ından getDriver methodunu kullanacğız
-            ancak mahşerin dört atlısında kullandığımız
-
-            driver = new ChromeDriver();
-
-            problem oluşturuyor,çünkü her çalıştığında yeniden CromeDriver oluşturuyor.
-
-            Bizim istediğimiz şu:
-
-            ben testimi çalıştırmaya başladığımda
-            ilk kez bu method u kullanınca CromeDriver oluştursun
-            Sonraki kulllanımlarda oluşturmasın
-
-            bunun için driver == null kontrol edip
-            ona göre yeni ChromeDriver ataması yapıyoruz
-
-         */
 
         /*
         İş yerimizde çalışırken
