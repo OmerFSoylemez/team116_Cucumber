@@ -3,6 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.AmazonPage;
@@ -58,14 +59,6 @@ public class AmazonStepdefinitions {
         Assert.assertTrue(actualSonucYazisi.contains(expectedIcerik));
     }
 
-
-
-
-
-
-
-
-
     @Then("arama kutusuna {string} yazip, ENTER tuşuna basar")
     public void aramaKutusunaYazipENTERTuşunaBasar(String aranacakUrun) {
         amazonPage.aramaKutusu.sendKeys("aranacakUrun" + Keys.ENTER);
@@ -78,17 +71,23 @@ public class AmazonStepdefinitions {
     }
 
     @And("{int} saniye bekler")
-    public void saniyeBekler(int beklemeSuresi) {
-
-
+    public void saniyeBekler(int beklemeSuresi){
+        try {
+            Thread.sleep(beklemeSuresi*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
-
     @Given("kullanıcı {string} anasayfasina gider")
     public void kullanıcıAnasayfasinaGider(String istenenUrl) {
-
         Driver.getDriver().get(ConfigReader.getProperty(istenenUrl));
-
     }
-
-
+    @When("ilk urunu tiklar")
+    public void ilk_urunu_tiklar() {
+        amazonPage.ilkUrunElementi.click();
+    }
+    @Then("urun isminde\"Nutella\" oldugunu test eder")
+    public void urun_isminde_nutella_oldugunu_test_eder(String istenenIcerik) {
+        Assert.assertTrue(amazonPage.ilkUrunIsimElementi.getText().contains(istenenIcerik));
+    }
 }
