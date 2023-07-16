@@ -17,6 +17,7 @@ public class AmazonStepdefinitions {
     public void kullanıcı_amazon_sayfasina_gider() {
         Driver.getDriver().get(ConfigReader.getProperty("amazonUrl"));
     }
+
     @Then("arama kutusuna Nutella yazip, ENTER tuşuna basar")
     public void arama_kutusuna_nutella_yazip_enter_tuşuna_basar() {
         amazonPage.aramaKutusu.sendKeys("Nutella"+ Keys.ENTER);
@@ -25,9 +26,7 @@ public class AmazonStepdefinitions {
     public void arama_sonuclarinin_nutella_icerdigini_test_eder() {
         String expectedIcerik = "Nutella";
         String actualSonucYazisi = amazonPage.sonucYaziElementi.getText();
-
         Assert.assertTrue(actualSonucYazisi.contains(expectedIcerik));
-
     }
     @Then("sayfayi kapatir")
     public void sayfayi_kapatir() {
@@ -36,29 +35,36 @@ public class AmazonStepdefinitions {
     }
     @Then("arama kutusuna Samsung yazip, ENTER tuşuna basar")
     public void aramaKutusunaSamsungYazipENTERTuşunaBasar() {
-        amazonPage.aramaKutusu.sendKeys("Nutella"+ Keys.ENTER);
+        amazonPage.aramaKutusu.sendKeys("Samsung"+ Keys.ENTER);
     }
     @And("arama sonuclarinin Samsung icerdigini test eder")
     public void aramaSonuclarininSamsungIcerdiginiTestEder() {
-        String expectedIcerik = "Nutella";
+        String expectedIcerik = "Samsung";
         String actualSonucYazisi = amazonPage.sonucYaziElementi.getText();
 
         Assert.assertTrue(actualSonucYazisi.contains(expectedIcerik));
 
     }
-
-    @Given("kullanıcı Java sayfasina gider")
-    public void kullanıcıJavaSayfasinaGider() {
-
+    @Then("arama kutusuna Java yazip, ENTER tuşuna basar")
+    public void aramaKutusunaJavaYazipENTERTuşunaBasar() {
+        amazonPage.aramaKutusu.sendKeys("Java"+ Keys.ENTER);
     }
 
     @And("arama sonuclarinin Java icerdigini test eder")
     public void aramaSonuclarininJavaIcerdiginiTestEder() {
-        String expectedIcerik = "Nutella";
+        String expectedIcerik = "Java";
         String actualSonucYazisi = amazonPage.sonucYaziElementi.getText();
 
         Assert.assertTrue(actualSonucYazisi.contains(expectedIcerik));
     }
+
+
+
+
+
+
+
+
 
     @Then("arama kutusuna {string} yazip, ENTER tuşuna basar")
     public void aramaKutusunaYazipENTERTuşunaBasar(String aranacakUrun) {
@@ -83,4 +89,6 @@ public class AmazonStepdefinitions {
         Driver.getDriver().get(ConfigReader.getProperty(istenenUrl));
 
     }
+
+
 }
