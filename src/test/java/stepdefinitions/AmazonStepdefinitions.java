@@ -21,6 +21,7 @@ public class AmazonStepdefinitions {
 
     @Then("arama kutusuna Nutella yazip, ENTER tuşuna basar")
     public void arama_kutusuna_nutella_yazip_enter_tuşuna_basar() {
+        amazonPage=new AmazonPage();
         amazonPage.aramaKutusu.sendKeys("Nutella"+ Keys.ENTER);
     }
     @Then("arama sonuclarinin Nutella icerdigini test eder")

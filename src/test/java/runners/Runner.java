@@ -8,7 +8,10 @@ import org.junit.runner.RunWith;
     @RunWith(Cucumber.class)
     @CucumberOptions(
 
-            plugin = "html:target/cucumber-report.html",
+            plugin = {"html:target/cucumber-report.html",
+                      "json:target/json-repots/cucumber.json",
+                      "junit:target/xml-report/cucumber.xml"
+                     },
             features = "src/test/resourses",
             glue = "stepdefinitions",
             tags = "@wip",

@@ -3,6 +3,7 @@ package utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -10,69 +11,87 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.time.Duration;
 
 public class Driver {
-    private static WebDriver driver;
+      /*
+    Driver class'ından driver'i gerDriver() ile kullanıyoruz
+    Sonradan projeye katılan insanların driver class'ından obje olusturarak
+    driver kullanmaya calışmalarını engellemek için
 
-    private Driver() {
+    Driver class'ını SINGLETON PATERN ile düzenleyebiliriz
+
+    Bunun için Driver class'ının parametresiz Constructer'ını olusturup access modifier'ını PRIVATE yapmamız
+    yeterli olur
+     */
+
+    private Driver(){
 
     }
-    public static WebDriver getDriver() {
+    static WebDriver driver;
+    ChromeOptions ops = new ChromeOptions();
+    public static WebDriver getDriver(){
+        String browser=ConfigReader.getProperty("browser");
+        if (driver==null) {
 
-
-
-        /*
-        İş yerimizde çalışırken
-        testlerimizi farklı Browser lar ile çalıştırmamız istenebilir
-        Dinamik olarak browser kullanabilmek için
-        configuration.properties dosyamıza browser = istenen browser
-        browser tanımladık
-
-        Driver class ında da configuration.properties dosyasındaki
-        bilgiyi okuyup o bilgiye göre istenen browser ı oluşturacak
-        bir yapı hazırlayalım.
-         */
-        WebDriverManager.chromedriver().setup();
-
-        if(driver==null){
-
-            String browser = ConfigReader.getProperty("browser");
-
-            switch (browser) {
-
-                case "firefox" :
+            switch (browser){
+                case "chrome":
+                    ChromeOptions ops = new ChromeOptions();
+                    ops.addArguments("--remote-allow-origins=*");
+                    WebDriverManager.chromedriver().setup();
+                    driver=new ChromeDriver(ops);
+                    break;
+                case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
+                    driver=new FirefoxDriver();
                     break;
-                case "safari" :
+                case "safari":
                     WebDriverManager.safaridriver().setup();
-                    driver = new SafariDriver();
-                    break;
-                case "edge" :
-                    WebDriverManager.edgedriver().setup();
-                    driver = new EdgeDriver();
+                    driver=new SafariDriver();
                     break;
                 default:
+                    WebDriverManager.chromedriver().setup();
+                    driver=new ChromeDriver();
+
             }
-            driver=new ChromeDriver();
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
         }
 
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
         return driver;
-
     }
 
     public static void closeDriver() {
-        if(driver != null){
+        if (driver!=null)
+        {
             driver.close();
-            driver = null;
+            driver=null;
         }
+
+
+        /*
+        1- Driver Class : Oluşturacagımız Framework'de webDriver'i Driver class'ındaki getDriver()
+        method'undan alacagız.Driver class'ını biraz daha geliştireceğiz .Farklı browser'larla calısabılır
+        hale gelecek
+        2- Page Class : Surekli kullandıgımız Locate ıslemlerini ve Logın gibi basit işlevleri yapacak
+        method'ları Page class'ında olusturacagız.
+
+        3- Bir Page class'ı olusturur olusturmaz ilk yapmamız gereken sey, parametresiz bir Constructor olusturup,içinde
+        PageFactory.initElements(webdriver,this) ile driver'a page sayfasında ilk değer atamasını yapmak olmalıdır.
+
+        4- Assertion : TestNG'de 2 assertion yontemi vardır.
+            - Hard Assert : JUnit'deki assert ile aynı method'lara sahiptir . İlk FAILED olan assertion'da
+            çalışmayı durdurur ve rapor verir.
+            - Soft Assert : Biz raporla diyene kadar assertion'lar FAILED olsa bile çalışmaya devam eder .assertAll() ile
+            raporlamasını ıstedıgımızde failed olan  assertion varsa raporlar ve çalışmayı durdurur.
+
+         5- Genelte "test edin" dendiğinde hard assert , doğrulayın(verify) denirse soft assert kullanılır.
+
+         */
     }
-    public static void quitDriver() {
-        if(driver != null){
+    public static void quitDriver(){
+        if (driver != null){
             driver.quit();
-            driver = null;
+            driver=null;
         }
     }
+
 }
