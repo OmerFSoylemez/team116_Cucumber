@@ -34,4 +34,19 @@ import org.junit.runner.RunWith;
         EGER eksik adimlari yoksa
         bu durumu raporlamak için Test PASSED işaretlenir.
 
+
+
+        features = "src/test/resourses",
+        glue = "stepdefinitions",
+
+        bu iki klasör birbiriyle ilişiklendirildiği için
+        bu klasörlerin altındaki tüm file lar ve class lar ilişiklidir.
+        Cucumber da file ve class ları birebir eşleştirmek yerine tümünü eşleştirir.
+
+        Eger siz spesifik olarak 1 feature'i
+        belirlediğiniz 1 stepdefinition class i ile çaılşmasını isterseniz
+        Runner class ında bu eşleşmeyi yapabilirsiniz.
+
+
+
      */
