@@ -1,5 +1,5 @@
 Feature: Amazonda toplu olarak verilen kelimeleri aratır
-  @wip
+
   Scenario Outline: TC13 Kullanici listedeki tüm ürünler için testi tekrarlayabilmeli
 
     Given kullanıcı "amazonUrl" anasayfasina gider

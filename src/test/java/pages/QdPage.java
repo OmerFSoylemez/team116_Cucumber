@@ -14,16 +14,16 @@ public class QdPage {
     @FindBy(xpath = "//a[text()='Log in']")
     public WebElement ilkLoginLinki;
 
-    @FindBy(xpath = "//*[@id=‘login-email’]")
+    @FindBy(xpath = "//*[@id='login-email']")
     public WebElement emailKutusu;
 
-    @FindBy(xpath = "/*[@id=‘login-password’]")
+    @FindBy(xpath = "//input[@name='password']")
     public WebElement passwordKutusu;
 
-    @FindBy(xpath = "//*[@class=‘btn red radius-5 mt-4 w-100’]")
+    @FindBy(xpath = "//button[@class='btn red radius-5 mt-4 w-100']")
     public WebElement loginButonu;
 
-    @FindBy(xpath = "(//a[text()=‘My courses’])[1]")
+    @FindBy(xpath = "(//a[text()='My courses'])[1]")
     public WebElement basariliGirisKontrolElementi;
 
 
