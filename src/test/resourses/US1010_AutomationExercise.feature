@@ -1,5 +1,5 @@
 Feature: US1010 Kullanici hesap olusturur
-@wip
+
   Scenario: TC16 kullanici girdigi degerlerle hesap olusturabilmeli
     
     Given kullanıcı "automationUrl" anasayfasina gider

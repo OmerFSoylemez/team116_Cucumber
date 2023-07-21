@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
             glue = "stepdefinitions",
             tags = "@wip",
 
-            dryRun = true
+            dryRun = false
 
     )
     public class Runner {
