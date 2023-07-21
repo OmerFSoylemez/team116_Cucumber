@@ -11,14 +11,13 @@ public class QdStepdefinitions {
 
     QdPage qdPage = new QdPage();
 
-    @Then("anasayfa login linkine click yapar")
-    public void anasayfa_login_linkine_click_yapar() {
+    @Then("anasayfada login linkine click yapar")
+    public void anasayfada_login_linkine_click_yapar() {
         qdPage.ilkLoginLinki.click();
     }
     @Then("email kutusuna {string} yazar")
     public void email_kutusuna_yazar(String istenenUserName) {
         qdPage.emailKutusu.sendKeys(ConfigReader.getProperty(istenenUserName));
-
     }
     @Then("password kutusuna {string} yazar")
     public void password_kutusuna_yazar(String istenenPassword) {
@@ -32,6 +31,7 @@ public class QdStepdefinitions {
     public void basarili_olarak_giris_yapildigini_test_eder() {
         Assert.assertTrue(qdPage.basariliGirisKontrolElementi.isDisplayed());
     }
+
     @Then("basarili olarak giris yapilamadigini test eder")
     public void basariliOlarakGirisYapilamadiginiTestEder() {
         Assert.assertTrue(qdPage.emailKutusu.isDisplayed());
@@ -41,6 +41,7 @@ public class QdStepdefinitions {
     public void emailKutusunaListedenYazar(String listedekiUsername) {
         qdPage.emailKutusu.sendKeys(listedekiUsername);
     }
+
     @And("password kutusuna listeden {string} yazar")
     public void passwordKutusunaListedenYazar(String listedekiPassword) {
         qdPage.passwordKutusu.sendKeys(listedekiPassword);

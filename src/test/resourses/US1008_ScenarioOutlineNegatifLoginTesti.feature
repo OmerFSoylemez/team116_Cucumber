@@ -6,7 +6,7 @@ Feature: US1008 liste olarak verilen kullanıcılar ile negatif login testi
     Then anasayfa login linkine click yapar
     And email kutusuna listeden "<kullaniciAdi>" yazar
     And password kutusuna listeden "<password>" yazar
-    And 2 saniye bekler
+    And 10 saniye bekler
     When login butonuna basar
     And basarili olarak giris yapilamadigini test eder
     Then sayfayi kapatir

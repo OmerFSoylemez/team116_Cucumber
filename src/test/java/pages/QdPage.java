@@ -17,17 +17,19 @@ public class QdPage {
     @FindBy(xpath = "//*[@id='login-email']")
     public WebElement emailKutusu;
 
-    @FindBy(xpath = "//input[@name='password']")
+    @FindBy(xpath = "//*[@id='login-password']")
     public WebElement passwordKutusu;
 
-    @FindBy(xpath = "//button[@class='btn red radius-5 mt-4 w-100']")
+    @FindBy(xpath = "//*[@class='btn red radius-5 mt-4 w-100']")
     public WebElement loginButonu;
 
     @FindBy(xpath = "(//a[text()='My courses'])[1]")
     public WebElement basariliGirisKontrolElementi;
 
-
-
-
-
 }
+
+
+
+
+
+

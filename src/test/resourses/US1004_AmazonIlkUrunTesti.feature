@@ -1,5 +1,6 @@
 Feature: US1004 Amazonda listeden ilk urunun dogru oldugunu test eder
 
+  @toplu @smoke @screen
   Scenario: TC08 ilk urun ismi arattirdigimiz kelimeyi icermeli
 
     Given kullanıcı "amazonUrl" anasayfasina gider

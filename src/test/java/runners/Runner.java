@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
                      },
             features = "src/test/resourses",
             glue = "stepdefinitions",
-            tags = "@wip",
+            tags = "@heroku",
 
             dryRun = false
 
