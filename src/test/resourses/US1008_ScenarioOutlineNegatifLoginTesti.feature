@@ -1,5 +1,5 @@
 Feature: US1008 liste olarak verilen kullanıcılar ile negatif login testi
-  @wip
+
   Scenario Outline: TC14 Liste olarak verilen kullanicilar ile negatif login testi yapabilme
 
     Given kullanıcı "qdUrl" anasayfasina gider

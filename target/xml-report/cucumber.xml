@@ -1,45 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="1.881" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="US1009 kullanici olmayan bir web elementi test eder" name="TC15 olmayan butonu test edebilme" time="1.735">
-<failure type="org.openqa.selenium.InvalidArgumentException" message="invalid argument
-  (Session info: chrome=114.0.5735.199)
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [76d69fef7908a4c72fb8bf10348caa3c, get {url=https = https://the-internet.herokuapp.com/add_remove_elements/}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\asus\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:50153}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50153/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 76d69fef7908a4c72fb8bf10348caa3c">
-<![CDATA[org.openqa.selenium.InvalidArgumentException: invalid argument
-  (Session info: chrome=114.0.5735.199)
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [76d69fef7908a4c72fb8bf10348caa3c, get {url=https = https://the-internet.herokuapp.com/add_remove_elements/}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\asus\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:50153}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50153/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 76d69fef7908a4c72fb8bf10348caa3c
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:199)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:132)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:295)
-	at stepdefinitions.AmazonStepdefinitions.kullanıcıAnasayfasinaGider(AmazonStepdefinitions.java:84)
-	at ✽.kullanıcı "heroqaurl" anasayfasina gider(file:///C:/Intel/team116_Cucumber/src/test/resourses/US1009_OlmayanElementTesti.feature:5)
-]]>
-</failure>
+<testsuite name="Cucumber" time="0.206" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="US1010 Kullanici hesap olusturur" name="TC16 kullanici girdigi degerlerle hesap olusturabilmeli" time="0.025">
+<failure/>
 <system-out><![CDATA[
-Given kullanıcı "heroqaurl" anasayfasina gider..............................failed
-When Add Element butonuna basar.............................................skipped
-And Delete butonu gorununceye kadar bekler..................................skipped
-Then Delete butonunun gorunur oldugunu test eder............................skipped
-And Delete butonuna basarak butonu siler....................................skipped
-And Delete butonunun gorumediğini test eder.................................skipped
-Then sayfayi kapatir........................................................skipped
+Given kullanıcı "automationUrl" anasayfasina gider..........................passed
+And user sign up linkine tiklar.............................................undefined
+And user Create an account bölümüne email adresi girer......................skipped
+And signUp butonuna basar...................................................skipped
+And user kisisel bilgilerini ve iletisim bilgilerini girer..................skipped
+And user Create Account butonuna basar......................................skipped
+Then hesap olustugunu test edin.............................................skipped
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -1,5 +1,5 @@
 Feature: US1009 kullanici olmayan bir web elementi test eder
-@heroku
+
   Scenario: TC15 olmayan butonu test edebilme
 
       Given kullanıcı "heroqaurl" anasayfasina gider
